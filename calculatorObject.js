@@ -1,6 +1,10 @@
+//Build Object (objects are collections of key-value pairs) with Methods (values that are functions)
+
 let calculator = {
     "add": function add(num1,num2,cb,num3) {
+        //create the solution for adding the first operation
         let addSum = num1 + num2;
+        //Check to see if num3 has a value, if it doesnt then call our secondOperation as a callback (cb) and pass in the addSum variable and num3
         if (num3 !== undefined) {
             return cb(addSum, num3);
         } 
@@ -8,6 +12,7 @@ let calculator = {
         
     }
     ,
+    //The Rest of these methods run the same way
     "subtract": function subtract(num1,num2,cb,num3) {
         let subtractValue = num1 - num2;
         if (num3 !== undefined) {
@@ -49,25 +54,25 @@ let calculator = {
         
     }
 }
-
+// Deconstruct the Object Methods so you can use them easier
 let {remainder, multiply, add, subtract, divide, exponent} = calculator;
 
 
 function doCalculate() {
     
-    
+    //Function to Check to see if a given value is actually a number
     let isNum = function(num) {
         return typeof(parseInt(num,10)) === "number";
     }
-    
+    // In the Case of an empty value, force the secondOperation to be add and return 0 as the value
     let emptyValue = function() {
         secondOperation = add;
         return 0;
     }
-    
+    //Pull Second Operation from HTML
     let secondOperation = document.getElementById("secondOperations").value;
     
-    //refactor for switch?
+    //Determine which operation the second operation is looking for
     switch (secondOperation) {
     case "Add":
         secondOperation = add;
@@ -91,7 +96,7 @@ function doCalculate() {
         secondOperation = secondOperation;
     }
     
-
+//Pull Data from HTML, Turn them into numbers, and pull first operator from  HTML
     let numOne = document.getElementById("num1").value;
     let numTwo = document.getElementById("num2").value;
     let numThree = document.getElementById("num3").value;
@@ -99,11 +104,10 @@ function doCalculate() {
     let firstNum = parseInt(numOne,10);
     let secondNum = parseInt(numTwo,10);
     let thirdNum = parseInt(numThree,10) || emptyValue();
-    console.log(thirdNum)
-
     
  
-    //refactor for switch?
+    //Run a Calculator Function based on the given first operation. Pass in the first two numbers as required values, 
+    // the secondOperation function as a "callback" (a function that is used inside of another function), and the thirdNum as a optional value too.
     if (selectedOperation === "Add") {
         document.getElementById("results").innerHTML = "Result: " + add(firstNum,secondNum,secondOperation,thirdNum);
     } else if (selectedOperation === "Subtract") {
