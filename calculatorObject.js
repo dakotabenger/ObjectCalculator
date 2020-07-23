@@ -4,7 +4,7 @@ let calculator = {
     "add": function add(num1,num2,cb,num3) {
         //create the solution for adding the first operation
         let addSum = num1 + num2;
-        //Check to see if num3 has a value, if it doesnt then call our secondOperation as a callback (cb) and pass in the addSum variable and num3
+        //Check to see if num3 has a value, if it does then call our secondOperation as a callback (cb) and pass in the addSum variable and num3
         if (num3 !== undefined) {
             return cb(addSum, num3);
         } 
