@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    
+<title>Calculator</title>
+</head>
+<body>
+    <script src="calculatorObject.js"></script>
+    <h1 id="title">Calculator (Using Object Destructuring)</h1>
+</br>
+    <div id="calcContainer">
+        <label for="num1">First Number:</label>
+    </br>
+        <input id="num1" />
+    </br>
+        <label for="operations">Operation To Be Done:</label>
+    </br>
+        <select id="operations">
+            <option value="Add">Add</option>
+            <option value="Subtract">Subtract</option>
+            <option value="Multiply">Multiply</option>
+            <option value="Divide">Divide</option>
+            <option value="Remainder">Remainder</option>
+            <option value="Exponential">Exponential</option>
+        </select>
+    </br>
+        <label for="num2">Second Number (Modulo & Exponent Here)</label>
+    </br>    
+        <input id="num2"/>
+    </br>
+    <label for="secondOperations">Second Operation</label>
+    </br>
+    <select id="secondOperations">
+        <option value="Add">Add</option>
+        <option value="Subtract">Subtract</option>
+        <option value="Multiply">Multiply</option>
+        <option value="Divide">Divide</option>
+        <option value="Remainder">Remainder</option>
+        <option value="Exponential">Exponential</option>
+    </select>
+    </br>
+    <label for="num3">Third Number</label>
+    </br>
+    <input id="num3"/>
+        <button type="button" onclick="doCalculate()">Calculate</button>
+    </br>    
+        <h1 id="results"></h1>
+    </div>
+</body>
